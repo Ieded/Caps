@@ -34,24 +34,55 @@
       <!-- 2. 에디터 -->
       <div class="panel-box">
         <div class="panel-header">
-          <select id="langSelect">
+          <select id="languageSelect">
             <option value="71">Python</option>
             <option value="63">JavaScript</option>
+            <option value="62">Java</option>
           </select>
           <button class="btn-run" onclick="runCodeWithJudge0()">▶ 실행</button>
         </div>
-        <textarea id="codeEditor" class="code-editor">print("Hello World")</textarea>
-        <div id="editorOutput" class="editor-output">실행 결과를 대기중입니다.</div>
+        <textarea id="codeEditor" class="code-editor"></textarea>
+        <div id="output" class="editor-output">실행 결과를 대기중입니다.</div>
       </div>
 
       <!-- 3. AI -->
-      <div class="panel-box">
-        <div class="panel-header">🤖 AI Copilot</div>
-        <div style="padding:20px;">AI 분석 내역이 표시됩니다.</div>
-      </div>
-    </div>
-  </div>
+      <div class="panel-box" style="flex: 1.2;">
+        <div class="panel-header">🤖 AI Copilot & 디버거</div>
+        
+        <div style="display: flex; flex-direction: column; gap: 16px; padding: 10px;">
+          <h3 style="margin: 0; color: var(--accent); font-size: 16px;">🔍 실행 흐름 시각화</h3>
+          
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+            <button id="btnPrev" class="btn-run" style="padding: 6px 10px; font-size: 13px;">◀ 이전</button>
+            <span id="stepCounter" style="color: var(--text2); font-size: 13px; font-weight: bold;">Step 0 / 0</span>
+            <button id="btnNext" class="btn-run" style="padding: 6px 10px; font-size: 13px;">다음 ▶</button>
+            <button id="btnReset" class="btn-login" style="margin-left: auto; padding: 6px 10px; font-size: 13px;">↻ 초기화</button>
+          </div>
 
+          <button id="btnAskAI" style="background-color: var(--accent); color: #000; font-weight: bold; border: none; padding: 8px; border-radius: 6px; cursor: pointer;">
+            🤖 이 단계 분석 요청
+          </button>
+
+          <div id="trackerCodeDisplay" style="width: 100%; background: var(--bg2); padding: 12px 8px; border-radius: 8px; font-family: var(--font-mono); font-size: 13px; line-height: 1.6; border: 1px solid var(--border); overflow-x: auto; white-space: pre; box-sizing: border-box;">
+            코드를 입력하고 실행해주세요.
+          </div>
+
+          <div style="width: 100%; background: var(--surface); padding: 16px; border-radius: 8px; border: 1px solid var(--border); box-sizing: border-box;">
+            <h4 style="margin: 0 0 12px 0; font-size: 14px;">메모리 변수 상태</h4>
+            <div id="trackerMemoryDisplay" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 8px;">
+              <span style="color: var(--text2); font-size: 13px;">데이터 없음</span>
+            </div>
+          </div>
+
+          <div style="background: var(--bg3); padding: 12px; border-radius: 6px; border: 1px solid var(--border);">
+            <h5 style="margin: 0 0 8px 0; color: var(--accent);">🤖 AI 튜터 피드백</h5>
+            <p id="aiResponseText" style="margin: 0; font-size: 13px; line-height: 1.5; color: var(--text2);">
+              디버그 시작 후 알고 싶은 단계에서 [이 단계 분석 요청] 버튼을 눌러보세요.
+            </p>
+          </div>
+        </div>
+      </div>
+      
   <!-- 공통 토스트 -->
   <div id="toast" class="toast"><span id="toastIcon"></span><span id="toastMsg"></span></div>
 
