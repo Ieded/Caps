@@ -1,0 +1,40 @@
+# =========================
+# 1. Maven (빌드 결과물)
+# =========================
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# =========================
+# 2. VS Code (에디터 설정)
+# =========================
+.vscode/
+
+# =========================
+# 3. Java / Spring Boot 
+# =========================
+*.class
+*.log
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# =========================
+# 4. OS 관련 파일
+# =========================
+.DS_Store
+Thumbs.db
+
+application.properties
+application.yml

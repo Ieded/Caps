@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>CodeMind — 커뮤니티</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- ── NAVBAR ── -->
+  <nav>
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-dot"></div> CodeMind</a>
+    <div class="nav-links">
+      <a href="ai.html" class="nav-link">🤖 AI 튜터</a>
+      <a href="note.html" class="nav-link">📝 오답노트</a>
+      <a href="code.html" class="nav-link">💻 코딩 연습</a>
+      <a href="board.html" class="nav-link active">👥 커뮤니티</a>
+    </div>
+  </nav>
+
+  <div id="page-board">
+    <div class="page-inner" style="max-width: 1100px; margin: 0 auto; padding: 48px 40px;">
+      
+      <!-- 🔴 1. 게시판 목록 뷰 -->
+      <div id="board-list-view">
+        <div class="board-header">
+          <div>
+            <h1 style="font-size:36px; font-weight:800; letter-spacing:-1.5px;">👥 선후배 커뮤니티</h1>
+            <p style="color:var(--text2); margin-top:8px; font-size:15px;">족보 공유부터 진로 조언까지, 선후배와 함께 성장하세요</p>
+          </div>
+          <button class="btn-primary" onclick="openBoardModal()">글쓰기</button>
+        </div>
+
+        <div class="board-tabs">
+          <div class="btab active" onclick="filterBoard('all', this)">전체</div>
+          <div class="btab" onclick="filterBoard('exam', this)">📂 시험/과제 족보</div>
+          <div class="btab" onclick="filterBoard('qna', this)">❓ 질문/답변</div>
+          <div class="btab" onclick="filterBoard('career', this)">🚀 진로/취업</div>
+        </div>
+
+        <!-- 리스트가 렌더링 될 공간 -->
+        <div class="post-list" id="postList"></div>
+      </div>
+
+      <!-- 🔴 2. 게시글 상세 뷰 (초기엔 숨김 처리) -->
+      <div id="board-detail-view" style="display: none; background: var(--bg2); padding: 40px; border-radius: 16px; border: 1px solid var(--border);">
+        
+        <!-- 뒤로가기 버튼 -->
+        <button class="btn-primary" style="margin-bottom: 24px; background: var(--surface); color: var(--text); border: 1px solid var(--border);" onclick="hideDetail()">← 목록으로 돌아가기</button>
+        
+        <!-- 상세 내용이 렌더링 될 공간 -->
+        <div id="detail-content"></div>
+
+        <!-- 하단 댓글 영역 -->
+        <div style="margin-top: 40px; border-top: 1px solid var(--border); padding-top: 32px;">
+          <h3 style="margin-bottom: 20px; font-size: 18px;">💬 댓글 <span id="comment-count" style="color: var(--accent);">0</span></h3>
+          
+          <!-- 댓글 리스트가 렌더링 될 공간 -->
+          <div id="comment-list" style="display: flex; flex-direction: column;"></div>
+          
+          <!-- 댓글 입력 창 -->
+          <div style="margin-top: 20px; display: flex; gap: 12px;">
+            <input type="text" placeholder="댓글을 남겨보세요..." style="flex: 1; padding: 12px 16px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); color: white; outline: none;">
+            <button class="btn-primary" onclick="showToast('댓글 등록은 서버 연결 후 지원됩니다.', '💡')">등록</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 공통 컴포넌트 -->
+  <div id="toast" class="toast"><span id="toastIcon"></span><span id="toastMsg"></span></div>
+
+  <!-- 스크립트 연결 -->
+  <script src="../js/common.js"></script>
+  <script src="../js/board.js"></script>
+</body>
+</html>

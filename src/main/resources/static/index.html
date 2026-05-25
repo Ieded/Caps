@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>CodeMind — CS 통합 학습 시스템</title>
+  <!-- 분리된 공통 CSS 불러오기 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-dot"></div> CodeMind
+    </a>
+    <div class="nav-links">
+      <a href="html/ai.html" class="nav-link"><span class="nav-link-icon">🤖</span> AI 튜터</a>
+      <a href="html/note.html" class="nav-link"><span class="nav-link-icon">📝</span> 오답노트</a>
+      <a href="html/code.html" class="nav-link"><span class="nav-link-icon">💻</span> 코딩 연습</a>
+      <a href="html/board.html" class="nav-link"><span class="nav-link-icon">👥</span> 커뮤니티</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-login" onclick="openLogin()">로그인</button>
+    </div>
+  </nav>
+
+  <!-- ── HOME PAGE CONTENT ── -->
+  <div style="padding-top: 20px;">
+    
+    <!-- 1. Hero Section -->
+    <section class="hero" style="max-width: 1200px; margin: 0 auto; padding: 80px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+      <div class="hero-text">
+        <div class="hero-badge" style="display: inline-block; padding: 6px 14px; background: rgba(99,179,237,0.1); border: 1px solid rgba(99,179,237,0.3); border-radius: 100px; color: var(--accent); font-size: 12px; font-weight: 600; margin-bottom: 28px;">
+          <span>✦</span> CS 통합 학습 플랫폼
+        </div>
+        <h1 class="hero-title" style="font-size: 56px; font-weight: 800; line-height: 1.1; margin-bottom: 24px;">
+          코드를 배우는<br>
+          <span style="background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">가장 스마트한 방법</span>
+        </h1>
+        <p class="hero-desc" style="font-size: 17px; color: var(--text2); line-height: 1.7; margin-bottom: 40px; max-width: 480px;">
+          AI 튜터, 오답노트, 코딩 연습이 하나로. 컴퓨터 공학과 학생을 위해 설계된 통합 학습 환경에서 더 빠르게 성장하세요.
+        </p>
+        <div class="hero-cta" style="display: flex; gap: 14px;">
+          <button class="btn-login" style="padding: 14px 32px; font-size: 15px;" onclick="openLogin()">무료로 시작하기 →</button>
+          <button class="btn-run" style="padding: 13px 28px; background: transparent; border: 1px solid var(--border); color: var(--text);" onclick="location.href='/html/code.html'">데모 체험</button>
+        </div>
+      </div>
+      
+      <!-- Terminal UI Mockup -->
+      <div class="terminal" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;">
+        <div style="background: var(--bg3); padding: 14px 18px; display: flex; gap: 8px; border-bottom: 1px solid var(--border);">
+          <div style="width:12px; height:12px; border-radius:50%; background:#fc8181;"></div>
+          <div style="width:12px; height:12px; border-radius:50%; background:#f6ad55;"></div>
+          <div style="width:12px; height:12px; border-radius:50%; background:#7ee8a2;"></div>
+        </div>
+        <div style="padding: 24px; font-family: var(--font-mono); font-size: 13px; line-height: 1.9;">
+          <span style="color: var(--accent2);">~/cs </span><span>ask "재귀란?"</span><br><br>
+          <span style="color: var(--accent);">🤖 AI 튜터:</span><br>
+          <span style="color: var(--text2);">함수가 자기 자신을 호출하는 기법입니다.</span><br><br>
+          <span style="color: var(--accent5);">✓ 오답노트에 저장되었습니다</span><br><br>
+          <span style="color: var(--accent2);">~/cs </span><span style="display:inline-block; width:8px; height:14px; background: var(--accent);"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Features Grid -->
+    <div style="max-width: 1200px; margin: 60px auto 100px; padding: 0 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <div class="panel-box" style="padding: 36px 32px; cursor: pointer;">
+        <div style="font-size: 24px; margin-bottom: 20px;">🤖</div>
+        <h3 style="font-size: 20px; margin-bottom: 12px;">AI 튜터</h3>
+        <p style="color: var(--text2); font-size: 14.5px; line-height: 1.6;">어려운 개념도 쉽게 설명해주는 AI 튜터와 실시간으로 질의응답 하세요.</p>
+      </div>
+      <div class="panel-box" style="padding: 36px 32px; cursor: pointer;">
+        <div style="font-size: 24px; margin-bottom: 20px;">📝</div>
+        <h3 style="font-size: 20px; margin-bottom: 12px;">오답노트</h3>
+        <p style="color: var(--text2); font-size: 14.5px; line-height: 1.6;">틀린 문제를 체계적으로 기록하고 복습하며 취약점을 분석하세요.</p>
+      </div>
+      <div class="panel-box" style="padding: 36px 32px; cursor: pointer;">
+        <div style="font-size: 24px; margin-bottom: 20px;">💻</div>
+        <h3 style="font-size: 20px; margin-bottom: 12px;">코딩 연습</h3>
+        <p style="color: var(--text2); font-size: 14.5px; line-height: 1.6;">브라우저에서 바로 코드를 작성하고 실행하며 실전 감각을 키우세요.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── 로그인 모달 (index.html에서 호출됨) ── -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="login-modal">
+      <h2 style="color: var(--accent); font-family: var(--font-mono); margin-bottom: 8px;">CodeMind</h2>
+      <p style="color: var(--text2); font-size: 14px; margin-bottom: 32px;">학습을 계속하려면 로그인하세요</p>
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-size: 13px; color: var(--text2); margin-bottom: 8px;">이메일</label>
+        <input type="email" placeholder="you@university.ac.kr" style="width: 100%; padding: 12px; background: var(--surface); border: 1px solid var(--border); color: white; border-radius: 8px; outline: none;">
+      </div>
+      <div style="margin-bottom: 24px;">
+        <label style="display: block; font-size: 13px; color: var(--text2); margin-bottom: 8px;">비밀번호</label>
+        <input type="password" placeholder="••••••••" style="width: 100%; padding: 12px; background: var(--surface); border: 1px solid var(--border); color: white; border-radius: 8px; outline: none;">
+      </div>
+      <button class="btn-login" style="width: 100%; padding: 14px;" onclick="doLogin()">로그인</button>
+    </div>
+  </div>
+
+  <!-- 공통 컴포넌트 -->
+  <div id="toast" class="toast"><span id="toastIcon"></span><span id="toastMsg"></span></div>
+
+  <!-- 분리된 공통 JS 불러오기 -->
+  <script src="js/common.js"></script>
+</body>
+</html>
