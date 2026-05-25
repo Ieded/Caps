@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>CodeMind — AI 튜터</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-dot"></div> CodeMind</a>
+    <div class="nav-links">
+      <a href="ai.html" class="nav-link active">🤖 AI 튜터</a>
+      <a href="note.html" class="nav-link">📝 오답노트</a>
+      <a href="code.html" class="nav-link">💻 코딩 연습</a>
+      <a href="board.html" class="nav-link">👥 커뮤니티</a>
+    </div>
+  </nav>
+
+  <div class="page-inner" style="max-width: 1000px; margin: 0 auto; padding: 40px;">
+    <div class="ai-header" style="margin-bottom: 30px;">
+      <h1>🤖 AI 튜터 학습 상담</h1>
+      <p style="color: var(--text2);">CS 개념부터 코드 디버깅까지 무엇이든 물어보세요.</p>
+    </div>
+
+    <div class="panel-box" style="height: 600px; display: flex; flex-direction: column;">
+      <div id="aiChatWindow" style="flex: 1; padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; background: var(--bg);">
+        <div class="c-msg">
+          <div class="c-avatar" style="background: linear-gradient(135deg, var(--accent), var(--accent5)); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">🤖</div>
+          <div class="c-bubble" style="background: var(--surface); padding: 15px; border-radius: 4px 15px 15px 15px; max-width: 80%;">
+            안녕하세요! 오늘 공부하면서 어려웠던 개념이나 코드가 있나요?
+          </div>
+        </div>
+      </div>
+      
+      <div style="padding: 20px; background: var(--bg3); border-top: 1px solid var(--border); display: flex; gap: 12px;">
+        <input type="text" id="aiInput" placeholder="질문을 입력하세요..." style="flex: 1; background: var(--bg); border: 1px solid var(--border); color: white; padding: 12px 16px; border-radius: 8px; outline: none;">
+        <button class="btn-run" onclick="sendAiMessage()" style="padding: 0 24px;">전송</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"><span id="toastIcon"></span><span id="toastMsg"></span></div>
+  <script src="/js/common.js"></script>
+  <script src="/js/ai.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>CodeMind — 오답노트</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-dot"></div> CodeMind</a>
+    <div class="nav-links">
+      <a href="ai.html" class="nav-link">🤖 AI 튜터</a>
+      <a href="note.html" class="nav-link active">📝 오답노트</a>
+      <a href="code.html" class="nav-link">💻 코딩 연습</a>
+      <a href="board.html" class="nav-link">👥 커뮤니티</a>
+    </div>
+  </nav>
+
+  <div class="page-inner" style="max-width: 1100px; margin: 0 auto; padding: 48px 40px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px;">
+      <h1>📝 나의 오답노트</h1>
+      <div style="color: var(--text3); font-size: 14px;">총 <span id="noteCount" style="color: var(--accent); font-weight: bold;">0</span>건의 오답</div>
+    </div>
+
+    <div class="board-tabs" style="display: flex; gap: 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px;">
+      <div class="btab active" onclick="filterNotes('all', this)">전체</div>
+      <div class="btab" onclick="filterNotes('algorithm', this)">알고리즘</div>
+      <div class="btab" onclick="filterNotes('os', this)">운영체제</div>
+    </div>
+
+    <div id="noteList" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      </div>
+  </div>
+
+  <div id="toast" class="toast"><span id="toastIcon"></span><span id="toastMsg"></span></div>
+  <script src="/js/common.js"></script>
+  <script src="/js/note.js"></script>
+</body>
+</html>
